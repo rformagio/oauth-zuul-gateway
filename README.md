@@ -1,9 +1,9 @@
-# oauth-gateway-challenge
+# oauth-zuul-gateway
 
 Esta prova de conceito (POC) consiste em:
 1. Criar um API REST que acessa uma segunda API externa (neste caso será feita uma requisição para ViaCEP)
 2. Disponibilizar a API criada através de um Gateway (API Gateway. Neste caso será utilizado o Zuul, da Neteflix)
-3. Preojteger a API com OAUTH2
+3. Proteger a API com OAUTH2
 
 ### Tecnologias utilizadas
 
