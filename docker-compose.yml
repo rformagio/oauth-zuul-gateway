@@ -1,0 +1,42 @@
+version: '3'
+services:
+  auth-server:
+    image: rformagio/auth-server:latest
+    container_name: auth-server
+    expose:
+      - "8090"
+    ports:
+      - "8090:8090"
+  eureka-server:
+    image: rformagio/eureka-server:latest
+    container_name: eureka-server
+    expose:
+      - "8761"
+    ports:
+      - "8761:8761"
+  app-person:
+    image: rformagio/app-person:latest
+    container_name: app-person
+    expose:
+      - "9091"
+    ports:
+      - "9091:9091"
+    depends_on:
+      - eureka-server
+      - app-cep
+  app-cep:
+    image: rformagio/app-cep:latest
+    container_name: app-cep
+    expose:
+      - "9092"
+    ports:
+      - "9092:9092"
+    depends_on:
+      - eureka-server
+  zuul-gateway:
+    image: rformagio/zuul-gateway:latest
+    container_name: zuul-gateway
+    expose:
+      - "9090"
+    ports:
+      - "9090:9090"

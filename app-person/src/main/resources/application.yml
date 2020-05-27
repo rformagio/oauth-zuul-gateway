@@ -1,0 +1,22 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: app-person
+person:
+  app-cep:
+    url: app-cep:9092/api/v1/cep/
+feign:
+  hystrix:
+    enabled: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
